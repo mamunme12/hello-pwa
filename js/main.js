@@ -6,7 +6,7 @@ window.onload = () => {
              .register('./sw.js');
   }
 
-  if ('Notification' in window && Notification.permission != 'granted') {
+  if ('Notification' in window) {
     console.log('Ask user permission')
     Notification.requestPermission(status => {  
         console.log('Status:'+status)
