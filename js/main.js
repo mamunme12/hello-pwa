@@ -96,6 +96,63 @@ const checkSubscription = async () => {
     });
 };
 
+// implement payment button
+const applePayButton = document.querySelector('#apple-pay-button');
+const paymentButton = document.querySelector('#payment-button');
+
+const applePayMethod = {
+  supportedMethods: 'https://apple.com/apple-pay',
+  data: {
+    version: 3,
+    merchantIdentifier: 'merchant.whatpwacando.today',
+    merchantCapabilities: ['supports3DS', 'supportsCredit', 'supportsDebit'],
+    supportedNetworks: ['amex', 'discover', 'masterCard', 'visa', 'maestro'],
+    countryCode: 'US',
+  },
+};
+
+const cardMethod = {
+  supportedMethods: 'basic-card',
+  data: {
+    supportedNetworks: [
+      'visa', 'mastercard'
+    ]
+  }
+};
+
+const paymentDetails = {
+  id: 'order-123',
+  displayItems: [
+    {
+      label: 'PWA Demo Payment',
+      amount: {currency: 'USD', value: '0.01'}
+    }
+  ],
+  total: {
+    label: 'Total',
+    amount: {currency: 'USD', value: '0.01'}
+  }
+};
+
+if(applePayButton) {
+  applePayButton.addEventListener('click', async () => {
+    const request = new PaymentRequest([applePayMethod], paymentDetails);
+    const response = await request.show();
+
+    console.log(response);
+  });
+}
+
+if(paymentButton) {
+  paymentButton.addEventListener('click', async () => {
+    const request = new PaymentRequest([cardMethod], paymentDetails);
+    const response = await request.show();
+
+    console.log(response);
+  });
+}    
+    
+
 checkSubscription();
 
 }
