@@ -92,11 +92,6 @@ const checkSubscription = async () => {
     });
 };
 
-
-// setTimeout(() => {
-// 	console.log("now calling checkSubscription()");
-// 	checkSubscription();
-// }, 3000);
 checkSubscription();
 
 }
