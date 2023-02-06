@@ -23,7 +23,7 @@ const displayNotification = notificationTitle => {
             console.log(reg)
             const options = {
                     body: 'Thanks for allowing push notification !',
-                    icon:  '/assets/icons/icon-512x512.png',
+                    icon:  '../assets/icons/icon-512x512.png',
                     vibrate: [100, 50, 100],
                     data: {
                       dateOfArrival: Date.now(),
