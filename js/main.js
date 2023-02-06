@@ -40,6 +40,7 @@ const displayNotification = notificationTitle => {
 // notification subscription
 const updateSubscriptionOnYourServer = subscription => {
     console.log('Write your ajax code here to save the user subscription in your DB', subscription);
+	alert("Subscription: "+subscription.endpoint);
     // write your own ajax request method using fetch, jquery, axios to save the subscription in your server for later use.
 };
 
