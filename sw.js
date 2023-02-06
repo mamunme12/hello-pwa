@@ -8,12 +8,17 @@ var filesToCache = [
 
 /* Start the service worker and cache all of the app's content */
 self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
-    })
-  );
-  self.skipWaiting();
+  console.log("starting service worker to cache......");
+  try {
+	e.waitUntil(
+		caches.open(cacheName).then(function(cache) {
+				return cache.addAll(filesToCache);
+			})
+		);
+		self.skipWaiting();
+  } catch (error) {
+	console.log("ERROR=>"+error);
+  }
 });
 
 /* Serve cached content when offline */
