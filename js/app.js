@@ -9,7 +9,7 @@ window.onload = () => {
 	shareButton.addEventListener('click', async () => {
 	const files = fileField ? fileField.files : [];
 
-	const data = {title, text, url};
+	const data = {title, url};
 
 	if(files.length) {
 		data.files = files;
@@ -20,6 +20,7 @@ window.onload = () => {
 	}
 	catch(e) {
 		console.log('share error', e);
+		alert("Share ERROR:" + e);
 	}
 	});
 
