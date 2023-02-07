@@ -1,6 +1,7 @@
 var cacheName = 'hello-pwa';
 var filesToCache = [
   'index.html',
+  'pages/share.html',
   'css/style.css',
   'js/main.js',
   'js/app.js'
