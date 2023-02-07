@@ -6,13 +6,19 @@ window.onload = () => {
              .register('./sw.js');
   }
 
-  if ('Notification' in window && Notification.permission != 'granted') {
+  let notification_element = document.getElementById("notification");
+  if ('Notification' in window && Notification.permission != 'granted') {	
     console.log('Ask user permission')
     Notification.requestPermission(status => {  
-        console.log('Status:'+status)
+        console.log('Status:'+status);
+		notification_element.innerHTML = status;
         displayNotification('Notification Enabled');
     });
-}
+ } else if('Notification' in window && Notification.permission == 'granted') {
+	notification_element.innerHTML = "granted";
+ } else if(!("Notification" in window)){
+	notification_element.innerHTML = "Notification not supported";
+ }
 
 
 // ask for notification permission
@@ -23,7 +29,7 @@ const displayNotification = notificationTitle => {
             console.log(reg)
             const options = {
                     body: 'Thanks for allowing push notification !',
-                    icon:  '../assets/icons/icon-512x512.png',
+                    icon:  '../images/icons/anyicon.png',
                     vibrate: [100, 50, 100],
                     data: {
                       dateOfArrival: Date.now(),
