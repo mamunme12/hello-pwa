@@ -120,9 +120,8 @@ const applePayMethod = {
 const cardMethod = {
   supportedMethods: 'basic-card',
   data: {
-    supportedNetworks: [
-      'visa', 'mastercard'
-    ]
+    supportedNetworks: ['visa', 'mastercard'],
+	supportedTypes: ['credit', 'debit']
   }
 };
 
