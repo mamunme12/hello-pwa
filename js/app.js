@@ -20,7 +20,7 @@ window.onload = () => {
 	}
 	catch(e) {
 		console.log('share error', e);
-		alert("Share ERROR:" + e);
+		// alert("Share ERROR:" + e);
 	}
 	});
 
