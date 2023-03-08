@@ -141,6 +141,8 @@ window.onload = () => {
             const request = new PaymentRequest([applePayMethod], paymentDetails);
             const response = await request.show();
 
+			alert(response);
+
             console.log(response);
         });
     }
